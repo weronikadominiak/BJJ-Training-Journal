@@ -19,10 +19,7 @@ export class PostStorageService {
   }
 
   post(post) {
-    console.log(this.myPosts);
     this.myPosts.push(post);
-    console.log(post);
-    console.log(this.myPosts);
     return this.update();
   }
 
@@ -35,13 +32,13 @@ export class PostStorageService {
     return this.myPosts.indexOf(post);
   }
 
-  put(item, changes) {
-    Object.assign(this.myPosts[this.findItemIndex(item)], changes);
+  put(post, changes) {
+    Object.assign(this.myPosts[this.findItemIndex(post)], changes);
     return this.update();
   }
 
-  destroy(item) {
-    this.myPosts.splice(this.findItemIndex(item), 1);
+  destroy(post) {
+    this.myPosts.splice(this.findItemIndex(post), 1);
     return this.update();
   }
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Post } from '../post.model';
 
 @Component({
@@ -8,8 +8,13 @@ import { Post } from '../post.model';
 })
 export class SinglePostViewComponent implements OnInit {
 @Input() post: Post;
+@Output() remove: EventEmitter<any> = new EventEmitter;
   constructor() { }
   ngOnInit() {
+  }
+
+  removePost(post) {
+    this.remove.emit(post);
   }
 
 }

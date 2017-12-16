@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
 import { PostStorageService } from '../post-storage.service';
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'bjj-post-view',
@@ -9,13 +10,18 @@ import { PostStorageService } from '../post-storage.service';
 export class PostViewComponent implements OnInit {
 myPosts = [];
   constructor(
-    private postStorage: PostStorageService,
+    private postStorageService: PostStorageService,
   ) { }
 
   ngOnInit() {
-    this.myPosts = this.postStorage.get();
+    this.myPosts = this.postStorageService.get();
     this.myPosts.reverse();
     console.log(this.myPosts);
+  }
+
+  removePost(post) {
+    console.log(post);
+    this.myPosts = this.postStorageService.destroy(post);
   }
 
 }
