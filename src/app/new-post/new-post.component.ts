@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { PostService } from '../post.service';
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Post } from '../post.model';
@@ -14,6 +15,7 @@ export class NewPostComponent implements OnInit {
 
   constructor(
     private postService: PostService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -21,6 +23,7 @@ export class NewPostComponent implements OnInit {
   onSubmit(post) {
     this.postService.addPost(post);
     this.submitted = true;
+    this.router.navigate(['']);
   }
 
 }
