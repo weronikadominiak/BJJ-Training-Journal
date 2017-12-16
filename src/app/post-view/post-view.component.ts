@@ -1,4 +1,4 @@
-import { PostStorageService } from '../post-storage.service';
+import { PostService } from '../post.service';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -10,18 +10,15 @@ import { Component, OnInit } from '@angular/core';
 export class PostViewComponent implements OnInit {
 myPosts = [];
   constructor(
-    private postStorageService: PostStorageService,
+    private postService: PostService,
   ) { }
 
   ngOnInit() {
-    this.myPosts = this.postStorageService.get();
-    this.myPosts.reverse();
-    console.log(this.myPosts);
+    this.myPosts = this.postService.getPosts();
   }
 
   removePost(post) {
-    console.log(post);
-    this.myPosts = this.postStorageService.destroy(post);
+    this.myPosts = this.postService.removePost(post);
   }
 
 }

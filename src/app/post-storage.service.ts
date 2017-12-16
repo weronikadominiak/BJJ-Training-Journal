@@ -15,7 +15,7 @@ export class PostStorageService {
    }
 
   get() {
-    return [...this.myPosts];
+    return [...this.myPosts].reverse();
   }
 
   post(post) {

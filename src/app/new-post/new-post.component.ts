@@ -1,6 +1,6 @@
+import { PostService } from '../post.service';
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Post } from '../post.model';
-import { PostStorageService } from '../post-storage.service';
 
 @Component({
   selector: 'bjj-new-post',
@@ -9,18 +9,17 @@ import { PostStorageService } from '../post-storage.service';
 })
 export class NewPostComponent implements OnInit {
   // without any error occutes in html file, that post doesn't have properites like date, try with {}
-  myPost: any;
+  myPost: any = new Post('', '', '', '');
   submitted = false;
 
   constructor(
-    private postStorage: PostStorageService,
+    private postService: PostService,
   ) { }
 
   ngOnInit() {
   }
-  onSubmit(myPost) {
-    // console.log(myPost);
-    this.postStorage.post(myPost);
+  onSubmit(post) {
+    this.postService.addPost(post);
     this.submitted = true;
   }
 

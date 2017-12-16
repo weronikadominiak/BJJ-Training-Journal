@@ -10,6 +10,7 @@ import { NewPostComponent } from './new-post/new-post.component';
 import { PostViewComponent } from './post-view/post-view.component';
 import { PostStorageService } from './post-storage.service';
 import { SinglePostViewComponent } from './single-post-view/single-post-view.component';
+import { PostService } from './post.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SinglePostViewComponent } from './single-post-view/single-post-view.com
   ],
   providers: [
     PostStorageService,
+    PostService,
   ],
   bootstrap: [AppComponent]
 })
