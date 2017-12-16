@@ -14,6 +14,7 @@ myPosts = [];
 
   ngOnInit() {
     this.myPosts = this.postStorage.get();
+    this.myPosts.reverse();
     console.log(this.myPosts);
   }
 
