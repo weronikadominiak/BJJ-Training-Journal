@@ -1,7 +1,3 @@
 <div *ngFor="let post of myPosts" >
-    <h2> {{post.date}} </h2>
-    <b>Trener: </b> {{post.coach}} <br>
-    <b>Technika: </b> {{post.technique}} <br>
-    <b>Notatki: </b> {{post.note}} <br>
-    <hr>
+    <bjj-single-post-view [post]="post"></bjj-single-post-view>
 </div>
