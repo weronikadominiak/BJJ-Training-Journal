@@ -9,7 +9,7 @@ import { PostStorageService } from '../post-storage.service';
 })
 export class NewPostComponent implements OnInit {
   // without any error occutes in html file, that post doesn't have properites like date, try with {}
-  myPost: any = new Post('1212', 'Bartek', 'balacha', 'moja notka');
+  myPost: any;
   submitted = false;
 
   constructor(

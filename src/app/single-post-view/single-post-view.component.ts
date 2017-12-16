@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Post } from '../post.model';
 
 @Component({
   selector: 'bjj-single-post-view',
@@ -7,7 +6,7 @@ import { Post } from '../post.model';
   styleUrls: ['./single-post-view.component.css']
 })
 export class SinglePostViewComponent implements OnInit {
-@Input() post: Post;
+@Input() post: any;
 @Output() remove: EventEmitter<any> = new EventEmitter;
   constructor() { }
   ngOnInit() {
