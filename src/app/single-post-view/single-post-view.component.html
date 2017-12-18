@@ -1,6 +1,10 @@
 <h2> {{post.date}} </h2>
 <button class="btn btn-danger" (click)="removePost(post)">Usuń</button>
+<button class="btn btn-primary" (click)="editPost(post)">Edytuj</button> <br>
 <b>Trener: </b> {{post.coach}} <br>
 <b>Technika: </b> {{post.technique}} <br>
 <b>Notatki: </b> {{post.note}} <br>
 <hr>
+<div *ngIf="edited">
+    <bjj-new-post [post]="post"></bjj-new-post>
+</div>
