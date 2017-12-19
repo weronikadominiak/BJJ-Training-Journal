@@ -32,7 +32,6 @@ export class NewPostComponent implements OnInit {
   onSubmit(myPost) {
     this.submit.emit(myPost);
     this.sharedService.emitChange(myPost);
-    // this.postService.addPost(post);
     this.router.navigate(['']);
   }
 
