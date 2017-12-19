@@ -23,7 +23,7 @@ edited = false;
 
   editPost(post, changes) {
     this.postService.editPost(post, changes);
-
+    this.edited = !this.edited;
   }
 
   onEditPost(post) {
