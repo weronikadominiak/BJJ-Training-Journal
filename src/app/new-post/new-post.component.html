@@ -1,26 +1,29 @@
 <p>
   Add new Post here!
 </p>
-<form #postForm="ngForm" (ngSubmit)="onSubmit(myPost)">
+<form #postForm="ngForm" (ngSubmit)="onSubmit(myPost)" ngNativeValidate>
 <div class="form-group">
   <label for="data">Data treningu:</label>
   <div class="input-group">
     <span class="input-group-addon" id="basic-addon1">
       <i class="material-icons">today</i>
     </span>
-    <input type="text" class="form-control" placeholder="DD/MM/YYYY"
-    id ="date" name="date" [(ngModel)]="myPost.date">
+    <input type="date" class="form-control" min="01-01-1990"
+    id ="date" name="date" [(ngModel)]="myPost.date" #data="ngModel" required> 
   </div>
+  <span class="form-text text-muted" *ngIf="!data.valid &&data.touched">To pole jest obowiązkowe.</span>
 </div>
 <div class="form-group">
   <label for="coach">Trener: </label>
   <input type="text" class="form-control"
   placeholder="Kto prowadził trening?"
-  id="date" name="coach" [(ngModel)]="myPost.coach">
+  id="date" name="coach" [(ngModel)]="myPost.coach" #coach="ngModel" required>
+  <span class="form-text text-muted" *ngIf="!coach.valid &&coach.touched">To pole jest obowiązkowe.</span>
+  
 </div>
 <div class="form-group">
     <label for="technique">Ćwiczona technika: </label>
-    <input type="text" class="form-control"
+    <input type="text" class="form-control" maxlength="100"
     placeholder="Np. balacha z gardy..."
     id="technique" name="technique" [(ngModel)]="myPost.technique"> 
   </div>
@@ -30,8 +33,8 @@
   </div>
 <div class="form-group">
   <label for="note">Notatki:</label>
-  <textarea class="form-control" rows="6" id="note" name="note" [(ngModel)]="myPost.note"></textarea>
+  <textarea class="form-control" maxlength="240" rows="6" id="note" name="note" [(ngModel)]="myPost.note"></textarea>
 </div>
-<button type="submit" class="btn btn-primary">Dodaj trening</button>
+<button [disabled]="!postForm.valid" type="submit" class="btn btn-primary">Dodaj trening</button>
 </form>
 
