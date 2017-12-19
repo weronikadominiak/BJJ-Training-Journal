@@ -14,6 +14,7 @@ export class NewPostComponent implements OnInit {
   @Output() submit: EventEmitter<any> = new EventEmitter();
   // without any error occutes in html file, that post doesn't have properites like date, try with {}
   myPost: any = new Post('', '', '', '');
+  onEdit = false;
 
   constructor(
     private postService: PostService,
@@ -24,6 +25,7 @@ export class NewPostComponent implements OnInit {
   ngOnInit() {
     if (this.post !== undefined) {
       this.myPost = this.post;
+      this.onEdit = true;
     }
   }
 

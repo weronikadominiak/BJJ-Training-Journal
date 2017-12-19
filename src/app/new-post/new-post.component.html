@@ -32,6 +32,16 @@
   <label for="note">Notatki:</label>
   <textarea class="form-control" maxlength="240" rows="6" id="note" name="note" [(ngModel)]="myPost.note"></textarea>
 </div>
-<button [disabled]="!postForm.valid" type="submit" class="btn btn-primary">Dodaj trening</button>
+<div *ngIf="!onEdit; else edit">
+    <button [disabled]="!postForm.valid" type="submit" 
+    class="btn btn-primary">Dodaj trening
+      </button>
+</div>
+<ng-template #edit>
+    <button [disabled]="!postForm.valid" type="submit" 
+    class="btn btn-primary">Zapisz zmiany
+    </button>
+</ng-template>
+
 </form>
 
