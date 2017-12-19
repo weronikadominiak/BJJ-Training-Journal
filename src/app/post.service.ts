@@ -19,4 +19,8 @@ export class PostService {
     addPost(post) {
       return this.postStorage.post(post);
     }
+
+    editPost(post, changes) {
+      return this.postStorage.edit(post, changes);
+    }
 }

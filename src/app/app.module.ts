@@ -1,3 +1,4 @@
+import { SharedService } from './shared.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -29,6 +30,7 @@ import { PostService } from './post.service';
   providers: [
     PostStorageService,
     PostService,
+    SharedService,
   ],
   bootstrap: [AppComponent]
 })

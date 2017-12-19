@@ -3,7 +3,7 @@
   <bjj-navbar></bjj-navbar>
   <div class="row">
     <section class="col-sm-8">
-        <router-outlet></router-outlet>
+        <router-outlet (submit)="addPost($event)"></router-outlet>
     </section>
     <aside class="col-sm-4">
       <bjj-calendar></bjj-calendar>

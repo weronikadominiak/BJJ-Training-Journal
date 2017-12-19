@@ -32,7 +32,7 @@ export class PostStorageService {
     return this.myPosts.indexOf(post);
   }
 
-  put(post, changes) {
+  edit(post, changes) {
     Object.assign(this.myPosts[this.findItemIndex(post)], changes);
     return this.update();
   }
