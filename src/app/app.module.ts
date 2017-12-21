@@ -12,6 +12,7 @@ import { PostViewComponent } from './post-view/post-view.component';
 import { PostStorageService } from './post-storage.service';
 import { SinglePostViewComponent } from './single-post-view/single-post-view.component';
 import { PostService } from './post.service';
+import { StarRatingComponent } from './star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { PostService } from './post.service';
     PostViewComponent,
     NavbarComponent,
     SinglePostViewComponent,
+    StarRatingComponent,
   ],
   imports: [
     BrowserModule,
