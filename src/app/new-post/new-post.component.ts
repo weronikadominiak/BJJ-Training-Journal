@@ -14,6 +14,7 @@ export class NewPostComponent implements OnInit {
   @Output() submit: EventEmitter<any> = new EventEmitter();
   // without any error occutes in html file, that post doesn't have properites like date, try with {}
   myPost: any = new Post('', '', '', '');
+  cos;
   onEdit = false;
 
   constructor(
@@ -27,6 +28,10 @@ export class NewPostComponent implements OnInit {
       this.myPost = this.post;
       this.onEdit = true;
     }
+  }
+
+  addRate(rate) {
+    this.myPost.rate = rate;
   }
 
   onSubmit(myPost) {

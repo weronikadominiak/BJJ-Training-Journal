@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'bjj-star-rating',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./star-rating.component.css']
 })
 export class StarRatingComponent implements OnInit {
+  @Output() rated: EventEmitter<number> = new EventEmitter;
   values = this.generateValues('star_border', 10);
   rate: number;
   ngOnInit() {
@@ -28,5 +29,6 @@ export class StarRatingComponent implements OnInit {
       }
     } );
     this.rate = index + 1 ;
+    this.rated.emit(this.rate);
     }
 }
