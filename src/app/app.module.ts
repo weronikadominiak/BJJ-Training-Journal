@@ -14,6 +14,7 @@ import { SinglePostViewComponent } from './single-post-view/single-post-view.com
 import { PostService } from './post.service';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import { UidService } from './uid.service';
+import { DisplayRatingComponent } from './display-rating/display-rating.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { UidService } from './uid.service';
     NavbarComponent,
     SinglePostViewComponent,
     StarRatingComponent,
+    DisplayRatingComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,7 @@
+<ng-container *ngFor="let value of lista, index as i">
+<i class="material-icons" *ngIf="rate >= i+1; else star">star</i>
+<ng-template #star>
+    <i class="material-icons">star_border</i>
+</ng-template>
+</ng-container>
+{{ rate }}/10

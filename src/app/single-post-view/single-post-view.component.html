@@ -14,7 +14,7 @@
       </div>
     <b>Trener: </b> {{post.coach}} <br>
     <b>Technika: </b> {{post.technique}} <br>
-    <b>Ocena </b> {{post.rate}} <br>
+    <b>Ocena: </b> <bjj-display-rating [rate]="post.rate"></bjj-display-rating> <br>
     <b>Notatki: </b> {{post.note}} <br>
     <hr>
     <div *ngIf="edited">
