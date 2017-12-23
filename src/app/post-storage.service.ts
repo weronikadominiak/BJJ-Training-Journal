@@ -2,16 +2,17 @@ import { Injectable } from '@angular/core';
 import { Post } from './post.model';
 
 const storageName = 'myPosts';
-const defaultList = [
-  { title: 'install NodeJS' },
-];
+const defaultList = [  {}];
+const idList =  'idList';
 
 @Injectable()
 export class PostStorageService {
   private myPosts = [];
+  private idList = [];
 
   constructor() {
     this.myPosts = JSON.parse(localStorage.getItem(storageName)) || [];
+    this.idList = JSON.parse(localStorage.getItem(idList)) || [];
    }
 
   get() {
@@ -42,6 +43,21 @@ export class PostStorageService {
     return this.update();
   }
 
+  // Obdsługa UID
 
+  getId() {
+    return [...this.idList];
+
+  }
+
+  postId(id) {
+    this.idList.push(id);
+    return this.updateId();
+  }
+
+  private updateId() {
+    localStorage.setItem(idList, JSON.stringify(this.idList));
+    return this.getId();
+  }
 
 }

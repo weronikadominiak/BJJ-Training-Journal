@@ -5,5 +5,6 @@ export class Post {
     technique: string,
     note: string,
     rate?: string,
-    ) {}
+    id?: string,
+) {}
 }

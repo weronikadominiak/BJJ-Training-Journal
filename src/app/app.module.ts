@@ -13,6 +13,7 @@ import { PostStorageService } from './post-storage.service';
 import { SinglePostViewComponent } from './single-post-view/single-post-view.component';
 import { PostService } from './post.service';
 import { StarRatingComponent } from './star-rating/star-rating.component';
+import { UidService } from './uid.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { StarRatingComponent } from './star-rating/star-rating.component';
     PostStorageService,
     PostService,
     SharedService,
+    UidService,
   ],
   bootstrap: [AppComponent]
 })

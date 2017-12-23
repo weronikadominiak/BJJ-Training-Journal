@@ -9,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostViewComponent implements OnInit {
 myPosts = [];
-// edited = false;
   constructor(
     private postService: PostService,
   ) { }
@@ -21,9 +20,4 @@ myPosts = [];
   removePost(post) {
     this.myPosts = this.postService.removePost(post);
   }
-
-  // editPost() {
-  //   this.edited = !this.edited;
-  // }
-
 }
