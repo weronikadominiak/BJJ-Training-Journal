@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DisplayRatingComponent implements OnInit {
   @Input() rate;
-  lista = [1,2,3,4,5,6,7,8,9,10];
+  lista = [1,2,3,4,5,6,7,8,9,10]
 
   constructor() { }
 

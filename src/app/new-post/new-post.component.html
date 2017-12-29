@@ -20,7 +20,7 @@
 </div>
 <div class="form-group">
     <label for="technique">Ćwiczona technika: </label>
-    <input type="text" class="form-control" maxlength="100"
+    <input type="text" class="form-control" maxlength="240"
     placeholder="Np. balacha z gardy..."
     id="technique" name="technique" [(ngModel)]="myPost.technique"> 
   </div>
@@ -30,7 +30,7 @@
   </div>
 <div class="form-group">
   <label for="note">Notatki:</label>
-  <textarea class="form-control" maxlength="240" rows="6" id="note" name="note" [(ngModel)]="myPost.note"></textarea>
+  <textarea class="form-control" maxlength="1000" rows="6" id="note" name="note" [(ngModel)]="myPost.note"></textarea>
 </div>
 <div *ngIf="!onEdit; else edit">
     <button [disabled]="!postForm.valid" type="submit" 
