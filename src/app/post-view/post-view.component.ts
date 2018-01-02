@@ -1,5 +1,6 @@
 import { PostService } from '../post.service';
 import { Component, OnInit } from '@angular/core';
+import { Post } from '../post.model';
 
 
 @Component({
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-view.component.css']
 })
 export class PostViewComponent implements OnInit {
-myPosts = [];
+myPosts: Post[] = [];
   constructor(
     private postService: PostService,
   ) { }

@@ -9,7 +9,7 @@
         </div>
         <div class="p-2">
             <button class="btn btn-primary btn-sm" 
-            (click)="onEditPost(post)">Edytuj</button>
+            (click)="onEditPost()">Edytuj</button>
         </div>
       </div>
     <b>Trener: </b> {{post.coach}} <br>
@@ -18,6 +18,6 @@
     <b>Notatki: </b> {{post.note}} <br>
     <hr>
     <div *ngIf="edited">
-        <bjj-new-post [post]="post" (submit)="editPost(post, $event)"></bjj-new-post>
+        <bjj-new-post [post]="post" (submit)="onEditPost()"></bjj-new-post>
     </div>
 </div>

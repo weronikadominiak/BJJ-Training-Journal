@@ -1,6 +1,4 @@
-import { SharedService } from './shared.service';
 import { Component } from '@angular/core';
-import { PostService } from './post.service';
 
 @Component({
   selector: 'bjj-root',
@@ -9,13 +7,4 @@ import { PostService } from './post.service';
 })
 export class AppComponent {
 
-  constructor(
-    private postService: PostService,
-    private sharedService: SharedService,
-) {
-      sharedService.changeEmitted$.subscribe(
-    post => {
-      this.postService.addPost(post);
-    });
-  }
 }

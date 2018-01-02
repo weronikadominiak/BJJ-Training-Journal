@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PostService } from '../post.service';
+import { Post } from '../post.model';
 
 @Component({
   selector: 'bjj-single-post-view',
@@ -7,9 +8,9 @@ import { PostService } from '../post.service';
   styleUrls: ['./single-post-view.component.css']
 })
 export class SinglePostViewComponent implements OnInit {
-@Input() post: any;
+@Input() post: Post;
 @Output() remove: EventEmitter<any> = new EventEmitter;
-@Output() edit: EventEmitter<any> = new EventEmitter;
+
 edited = false;
   constructor(
     private postService: PostService,
@@ -26,7 +27,7 @@ edited = false;
     this.edited = !this.edited;
   }
 
-  onEditPost(post) {
+  onEditPost() {
     this.edited = !this.edited;
   }
 

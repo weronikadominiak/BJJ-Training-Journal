@@ -1,7 +1,7 @@
-import { SharedService } from '../shared.service';
+import { Component, Input, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { PostService } from '../post.service';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 import { Post } from '../post.model';
 import { UidService } from '../uid.service';
 
@@ -11,16 +11,12 @@ import { UidService } from '../uid.service';
   styleUrls: ['./new-post.component.css']
 })
 export class NewPostComponent implements OnInit {
-  @Input() post;
-  @Output() submit: EventEmitter<any> = new EventEmitter();
-  // without any error occutes in html file, that post doesn't have properites like date, try with {}
-  myPost: any = new Post('', '', '', '', '');
+  @Input() post: Post; myPost: Post = new Post;
   onEdit = false;
 
   constructor(
     private postService: PostService,
     private router: Router,
-    private sharedService: SharedService,
     private uid: UidService,
 
   ) { }
@@ -36,10 +32,13 @@ export class NewPostComponent implements OnInit {
     this.myPost.rate = rate;
   }
 
-  onSubmit(myPost) {
+  onSubmit(myPost: Post) {
     this.myPost.id = this.uid.generateId();
-    this.submit.emit(myPost);
-    this.sharedService.emitChange(myPost);
+    if (this.onEdit === true) {
+      this.postService.editPost(this.post, this.myPost);
+    } else {
+      this.postService.addPost(myPost);
+    }
     this.router.navigate(['']);
   }
 }
