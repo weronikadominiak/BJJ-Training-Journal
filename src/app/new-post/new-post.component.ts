@@ -11,7 +11,8 @@ import { UidService } from '../uid.service';
   styleUrls: ['./new-post.component.css']
 })
 export class NewPostComponent implements OnInit {
-  @Input() post: Post; myPost: Post = new Post;
+  @Input() post: Post;
+  myPost: Post = new Post;
   onEdit = false;
 
   constructor(

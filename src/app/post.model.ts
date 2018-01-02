@@ -1,7 +1,7 @@
 export class Post {
-    public date?: string;
-    public coach?: string;
-    public technique?: string;
+    public date: string;
+    public coach: string;
+    public technique: string;
     public note?: string;
     public rate?: number;
     public id?: number;
