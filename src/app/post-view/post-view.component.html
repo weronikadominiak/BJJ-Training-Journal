@@ -1,8 +1,9 @@
-<div *ngIf="myPosts.length === 0; else list">
+<div *ngIf="myPosts.length > 0; else list">
+    <div *ngFor="let post of myPosts" #list>
+        <bjj-single-post-view [post]="post" (remove)="removePost($event)"></bjj-single-post-view>
+    </div>
+</div>
+<ng-template #list>
     <p>Nie dodałeś jeszcze żadnego treningu! Możesz to zrobić
-        <a [routerLink]="['new-post']"> tutaj</a>.
-    </p>
-</div>
-<div *ngFor="let post of myPosts" #list>
-    <bjj-single-post-view [post]="post" (remove)="removePost($event)"></bjj-single-post-view>
-</div>
+    <a [routerLink]="['new-post']"> tutaj</a>.</p>
+</ng-template>
