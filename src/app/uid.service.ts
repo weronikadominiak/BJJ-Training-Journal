@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { PostStorageService } from './post-storage.service';
+import { StorageService } from './storage.service';
+
 
 @Injectable()
 export class UidService {
   id = [];
 
   constructor(
-    private storageService: PostStorageService,
+    // private storage: StorageService,
   ) {
-    this.id = storageService.getId();
+    // storage.getId();
    }
 
   generateId() {
@@ -17,7 +18,15 @@ export class UidService {
     } else {
       this.id.push((this.id[this.id.length - 1 ]) + 1);
     }
-    this.storageService.postId(this.id.length);
+    // this.storage.postId();
     return this.id.length;
+  }
+
+  getId() {
+    return this.id;
+  }
+
+  setId(id) {
+    this.id = id;
   }
 }

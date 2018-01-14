@@ -5,11 +5,12 @@
         </div>
         <div class="p-2">
             <button class="btn btn-danger btn-sm"
-            (click)="removePost(post)">Usuń</button>
+            (click)="removePost(post.id)">Usuń</button>
         </div>
         <div class="p-2">
             <button class="btn btn-primary btn-sm" 
-            (click)="onEditPost()">Edytuj</button>
+            [routerLink]="['edit', post.id]"
+            >Edytuj</button>
         </div>
       </div>
     <b>Trener: </b> {{post.coach}} <br>
@@ -17,7 +18,4 @@
     <b>Ocena: </b> <bjj-display-rating [rate]="post.rate"></bjj-display-rating> <br>
     <b>Notatki: </b> {{post.note}} <br>
     <hr>
-    <div *ngIf="edited">
-        <bjj-new-post [post]="post" (submit)="onEditPost()"></bjj-new-post>
-    </div>
 </div>

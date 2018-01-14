@@ -1,6 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { PostService } from '../post.service';
 import { Post } from '../post.model';
+import { StorageService } from '../storage.service';
+
 
 @Component({
   selector: 'bjj-single-post-view',
@@ -9,26 +11,19 @@ import { Post } from '../post.model';
 })
 export class SinglePostViewComponent implements OnInit {
 @Input() post: Post;
-@Output() remove: EventEmitter<any> = new EventEmitter;
 
-edited = false;
   constructor(
     private postService: PostService,
+    private storage: StorageService,
   ) { }
   ngOnInit() {
+    console.log('test');
+    this.post.id = this.postService.indexOf(this.post);
   }
 
-  removePost(post) {
-    this.remove.emit(post);
-  }
-
-  editPost(post, changes) {
-    this.postService.editPost(post, changes);
-    this.edited = !this.edited;
-  }
-
-  onEditPost() {
-    this.edited = !this.edited;
+  removePost(id) {
+    this.postService.removePost(id);
+    this.storage.post();
   }
 
 }

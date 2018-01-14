@@ -1,27 +1,48 @@
 import { Injectable } from '@angular/core';
-import { PostStorageService } from './post-storage.service';
+import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
+
 import { Post } from './post.model';
+
 
 @Injectable()
 export class PostService {
+  newPost = new Subject<any>();
+  myList: Post[] = [];
 
   constructor(
-    private postStorage: PostStorageService,
   ) { }
 
-    getPosts() {
-      return this.postStorage.get();
-    }
+  addPost(post) {
+    this.myList.push(post);
+    this.newPost.next(this.myList.slice());
+  }
 
-    removePost(post) {
-      return this.postStorage.destroy(post);
-    }
+  indexOf(post) {
+    return this.myList.indexOf(post);
+  }
 
-    addPost(post) {
-      return this.postStorage.post(post);
-    }
+  editPost(post, change) {
+    this.myList[post] = change;
+    this.newPost.next(this.myList.slice());
+  }
 
-    editPost(post, changes) {
-      return this.postStorage.edit(post, changes);
-    }
+  setPosts(posts: Post[]) {
+    this.myList = posts;
+    this.newPost.next(this.myList.slice());
+  }
+
+  getPosts() {
+    return this.myList;
+  }
+
+  getPost(id) {
+    return this.myList[id];
+  }
+
+  removePost(id) {
+    this.myList.splice(id, 1);
+    this.newPost.next(this.myList.slice());
+  }
+
 }

@@ -1,4 +1,6 @@
+import { PostService } from './post.service';
 import { Component } from '@angular/core';
+import { StorageService } from './storage.service';
 
 @Component({
   selector: 'bjj-root',
